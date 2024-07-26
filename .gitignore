@@ -1,0 +1,63 @@
+# Godot-specific files
+.import/
+.export/
+
+# Temporary files
+*.tmp
+
+# Backup files
+*.bak
+*.old
+
+# User-specific settings
+.editor_settings-*
+
+# Godot's generated script class cache
+.godot/
+
+# Mono-specific files (if using C#)
+mono/
+
+# C# Project files (if using Mono)
+GodotTools/
+
+# Godot's export templates
+.editor/
+
+# Godot's backups of scenes and resources
+*.godot_backup
+
+# Operating system files
+.DS_Store
+Thumbs.db
+
+# System file that might appear on macOS
+.DS_Store
+
+# Compiled object files
+*.o
+*.so
+*.dll
+*.dylib
+*.class
+
+# Executables
+*.exe
+*.out
+*.app
+
+# Compressed files
+*.7z
+*.zip
+*.tar.gz
+*.rar
+
+# Log files
+*.log
+
+# Other editor specific files
+.vscode/
+.idea/
+
+# Miscellaneous
+*.swp

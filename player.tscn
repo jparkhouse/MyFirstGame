@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://b02tvrophto70"]
+
+[ext_resource type="Script" path="res://Player.gd" id="1_f8ncd"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_0oh8f"]
+load_path = "res://.godot/imported/Player.png-3b381e068d1d74cc2895fb9be41402b0.ctex"
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4ar0a"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("CompressedTexture2D_0oh8f")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Player" type="Area2D"]
+script = ExtResource("1_f8ncd")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_4ar0a")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-17, -16, 17, -16, 21, 16, -21, 16)
