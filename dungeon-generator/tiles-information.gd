@@ -54,7 +54,7 @@ const BOTTOM_SELECTION_MASK = BOTTOM_RIGHT_CORNER | BOTTOM_WALL | BOTTOM_LEFT_CO
 func get_valid_tiles(top_tile: TILE_KEYS,\
 	right_tile: TILE_KEYS,\
 	bottom_tile: TILE_KEYS,\
-	left_tile: TILE_KEYS):
+	left_tile: TILE_KEYS) -> Array[TILE_KEYS]:
 	return TILE_KEYS.keys().filter(
 		func filter_tiles(key):
 			var truths = []
@@ -67,7 +67,7 @@ func get_valid_tiles(top_tile: TILE_KEYS,\
 			if right_tile != TILE_KEYS.NOTSET:
 				truths.push(is_valid_tile_side(right_tile, key, DIRECTIONS.RIGHT))
 			return truths.all(func is_true(x: bool):
-								return x)
+								return x) # if any are false, not a valid match
 	)
 
 enum DIRECTIONS {
@@ -77,7 +77,7 @@ enum DIRECTIONS {
 	BOTTOM
 }
 
-func is_valid_tile_side(tile_to_compare: TILE_KEYS, tile_to_set: TILE_KEYS, direction: DIRECTIONS):
+func is_valid_tile_side(tile_to_compare: TILE_KEYS, tile_to_set: TILE_KEYS, direction: DIRECTIONS) -> bool:
 	match direction:
 		DIRECTIONS.LEFT:
 			var left_tile_right_side = tile_to_compare & RIGHT_SELECTION_MASK # right side of left tile
@@ -100,5 +100,5 @@ func is_valid_tile_side(tile_to_compare: TILE_KEYS, tile_to_set: TILE_KEYS, dire
 			var bottom_tile_top_side = tile_to_compare & TOP_SELECTION_MASK
 			var bottom_side = tile_to_set & BOTTOM_SELECTION_MASK
 			return bottom_tile_top_side & bottom_side == bottom_tile_top_side
-		_:
+		_: # anything else
 			return false

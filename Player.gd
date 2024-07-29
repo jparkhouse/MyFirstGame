@@ -20,12 +20,7 @@ func _process(delta) -> void:
 	var velocity
 	
 	if input.length_squared() > 0:
-		_target_angle = input.angle()
-
-		# Smoothly interpolate rotation using tween
-		var rotation_time = 0.2
-		tween.tween_property(self, "rotation", _target_angle, rotation_time)
-		
+		rotation = input.angle()
 		velocity = input.normalized() * speed
 		$AnimatedSprite2D.play("default")
 	else:
